@@ -1,0 +1,135 @@
+                                             
+<!DOCTYPE html>
+<html>
+<head profile="http://www.w3.org/2005/10/profile">
+<link rel="icon" type="image/png" href="/oelogo.png">
+  <title>Open Escalar - Amun Cloud Management - Beta</title>
+  <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+  <![endif]-->
+  <link href="/bootstrap/css/bootstrap.css" media="all" rel="stylesheet" type="text/css" />
+  <link href="/bootstrap/css/bootstrap-responsive.css" media="all" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35981234-1']);
+  _gaq.push(['_setDomainName', 'openescalar.org']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="/">
+          OpenEscalar - Amun - Beta
+        </a>
+        <ul class="nav">
+          <li><a href="/es/" class="active"><span>Inicio</span></a></li>
+          <li><a href="/es/caracteristicas.html"><span>Caracteristicas</span></a></li>
+          <li><a href="/es/futuro.html"><span>Futuro</span></a></li>
+          <li><a href="/es/amun.html"><span>Amun</span></a></li>
+          <li><a href="http://blog.openescalar.org"><span>Blog</span></a></li>
+          <li><a href="https://plus.google.com/114371646903483254913?prsrc=3" rel="publisher" style="text-decoration:none;">
+<img src="//ssl.gstatic.com/images/icons/gplus-32.png" alt="Google+" style="border:0;width:24px;height:24px;"/></a></li>
+          <li><a href="https://www.facebook.com/openescalar"><img src="/fb.jpeg" alt="Facebook" style="border:0;width:24px;height:24px;" /></a></li>
+          <li><a href="http://openescalar.tumblr.com"><img src="http://platform.tumblr.com/v1/share_4.png" style="border:0;width:24px;height:24px;" /></a></li>
+          <li><a href="http://www.twitter.com/openescalar"><img src="http://twitter.com/images/resources/twitter-bird-white-on-blue.png" alt="Twitter" style="border:0;width:24px;height:24px;" /> @openescalar</a></li>
+        </ul>
+        <ul class="nav pull-right">
+          <li><a href="/index.html">English</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+        <div class="row">
+           <div class="offset1 span9">
+              <h2>Amun IaaS Cloud Management</h2>
+              <p>Es la primera parte de la aplicación OpenEscalar, diseñado para permitir a los usuarios administrar y coordinar IaaS desde una interfaz web central. Amun ofrece las siguientes características:<br>
+	      <ul>
+		<li>Gestión de nubes públicas y privadas.</li>
+		<li>Gestión de usuarios.</li>
+		<li>Orquestación.</li>
+		<li>Agrupar instancias por roles y definir las tareas propias de cada rol, lo que permite al usuario ejecutar tareas por servidor, rol, siguiendo  flujos de trabajo o despliegues.</li>
+	 	<li>Monitoreo.</li>
+		<li>Auto Scaling</li>
+		<li>Registro Central.</li> 
+		<li>Gráficos.</li>
+		<li>Completamente Distribuida.</li>
+		<li>DSL, que permiten a los usuarios crear infraestructuras en un lenguaje de alto nivel.</li>
+	      </ul></p>
+           </div>
+        </div>
+        <br>
+        <div class="row">
+           <div class="offset1 span9">
+	      <h2>Arquitectura</h2>
+	      <p><a href="../AmunProcessArchitecture.png"><img src="../AmunProcessArchitecture.png" /></a></p>
+           </div>
+        </div>
+        <br>
+        <div class="row">
+           <div class="offset1 span9">
+		<h2>Componentes</h2>
+		<p>Amun está formado por los siguientes componentes:<br>
+		  <ul>
+			<li><b>Amun WebUI</b><br><p>Aplicación de Ruby on Rails que permite a los usuarios interactuar con el marco de Amun, además de ejecutar trabajos, comprobar los registros, organizar y crear gráficos de control.</p></li>
+			<li><b>Amun Tools</b><br><p>Amun Tools es un conjunto de procesos que proporcionan los siguientes servicios: 
+                            <ul>
+				<li><b> Servidor Api </b>:<br>Descifra y decodifica  todos las peticiones que  vienen de los clientes, y utiliza un triple factor de encriptación para proveer  las tareas  requeridos por los clientes.</li>
+				<li><b>oe-commander</b>:<br>Recoge estadísticas de los clientes, define los limites para autoescalar y aumenta o reduce las infraestructuras.  </li>
+				<li><b>oe-coordinador</b>:<br>Coordina y distribuye a todos los trabajadores oe todas las solicitudes enviadas ya sea por los usuarios a través de WebUI Amun o oe-commander, que utiliza un balanceo de carga interna para mantener a los trabajadores de la sobrecarga de solicitudes múltiples.</li>
+				<li><b>oe-worker</b>:<br>Realiza todas las peticiones para crear o destruir volúmenes, servidores de seguridad, instancias keyparis y direccion IP a las clouds, y actualiza la base de datos con detalles como numero de serie, dirección IP,  hosts name, tamaños después de obtener una respuesta de la cloud.</li>
+			</ul>
+			<li><b>Cliente Amun </b><br><p>El cliente, el cual es instalado en cada maquina virtual, se autoentifica con el servidor para solicitar las tareas indicadas por Amun. Una vez que las obtiene, las ejecutará una a la vez, recogera el código de salida, el resultado actualizar Amun con ellos. El cliente se conecta y comprueba si hay nuevas notificaciones en el servidor de cola de mensajes cada minuto.</p></li>
+			<li><b>Servidor de cola de mensaje</b><br><p>Servicio al que Amun WebUI envía notificaciones las cuales son recibidas por los clientes en las instancias de máquina virtual. Cada notificación contiene información suficiente para que el cliente pueda solicitar al servidor API la tarea correcta.</p></li>
+			<li><b>Servidor de registro </b><br><p>Servicio de registro central al cual todos los clientes que envían sus registros los cuales pueden ser vistos  desde el WebUI Amun.</p></li>
+		  </ul>
+		</p>
+           </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+           <div class="offset1 span9">
+              <div class=" alert alert-info"><h5><b>OpenEscalar apoya el Open Source.</b></h5><div class="fb-like" data-href="http://www.openescalar.org" data-send="true" data-layout="button_count" data-width="450" data-show-faces="false" data-font="arial"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.openescalar.org" data-text="OpenEscalar" data-via="OpenEscalar">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script><div class="g-plusone" data-href="http://www.openescalar.org"></div> <a href="http://www.tumblr.com/share" title="Share on Tumblr" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:129px; height:20px; background:url('http://platform.tumblr.com/v1/share_3.png') top left no-repeat transparent;">Share on Tumblr</a></div>
+           </div>
+        </div>
+        <div class="row">
+            <div class="offset1 span6">
+	     <p><a href="/aboutus.html">about us</a> | <a href="mailto:openescalar@gmail.com?Subject=Request%20Information">contact us</a> | <a href="/privacypolicy.html">privacy policy</a> | <a href="/termsofuse.html">terms of use</a></p>
+            </div>
+        </div>
+  </div>
+<!-- Place this tag after the last +1 button tag. -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+</body>
+</html>
