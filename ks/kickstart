@@ -1,0 +1,117 @@
+auth  --useshadow  --enablemd5
+bootloader --location=mbr
+zerombr
+text
+firewall --disabled
+firstboot --disable
+keyboard us
+lang en_US
+logging --level=info
+
+url --url=http://centos.arcticnetwork.ca/6.3/os/x86_64/
+rootpw centos
+
+reboot
+selinux --disabled
+skipx
+timezone --isUtc GMT
+install
+clearpart --all --initlabel
+part /boot --fstype ext2 --size=500 --asprimary
+part swap --fstype swap --size=500 --asprimary
+part pv.01 --size=1 --grow
+
+volgroup Sys pv.01
+logvol /        --vgname=Sys --fstype=ext3 --size=4024 --grow --name=root
+
+
+
+%packages
+@ base
+@ core
+ntp
+dmidecode
+# Removing unnecessary packages
+-acpid
+-nano
+-zip
+-unzip
+-anacron
+-autofs
+-avahi-daemon
+-avahi-dnsconfd
+-bluetooth
+-bluez-utils
+-ccid
+-conman
+-coolkey
+-dhcdbd
+-dund
+-firstboot
+-firstboot-tui
+-gpm
+-hidd
+-ifd-egate
+-ip6tables
+-ipmi
+-irda
+-irda-utils
+-irqbalance
+-isdn
+-kudzu
+-mdmonitor
+-mdmpd
+-microcode_ctl
+-multipathd
+-NetworkManager
+-NetworkManagerDispatcher
+-nfs-utils
+-openibd
+-pcsc-lite
+-pcsc-lite-libs
+-policycoreutils
+-portmap
+-psacct
+-readahead
+-selinux-policy
+-selinux-policy-targeted
+-setools
+-system-config-network-tui
+-wpa_supplicant
+-ypbind
+
+%post
+# Disabling Daemons
+chkconfig --level 0123456 cups off
+chkconfig --level 0123456 mcstrans off
+chkconfig --level 0123456 sendmail off
+chkconfig --level 2345 cpuspeed off
+chkconfig --level 2345 netplugd off
+chkconfig --level 2345 rdisc off
+chkconfig --level 2345 rpcgssd off
+chkconfig --level 2345 rpcidmapd off
+chkconfig --level 2345 rpcsvcgssd off
+chkconfig --level 2345 hidd off
+chkconfig --level 2345 bluetooth off
+chkconfig --level 2345 pcscd off
+chkconfig --level 2345 iptables off
+chkconfig --level 2345 ip6tables off
+chkconfig --level 2345 kudzu off
+
+# Enabling Daemons
+chkconfig --level 2345 crond on
+chkconfig --level 235 sysstat on
+chkconfig --level 345 atd on
+chkconfig --level 345 auditd on
+chkconfig --level 345 iptables on
+chkconfig --level 345 jexec on
+chkconfig --level 345 lvm2-monitor on
+chkconfig --level 345 netfs on
+chkconfig --level 345 network on
+chkconfig --level 345 ntpd on
+chkconfig --level 345 smartd on
+chkconfig --level 345 sshd on
+chkconfig --level 345 syslog on
+chkconfig --level 345 yum-updatesd on
+/sbin/ntpdate pool.ntp.org
+
