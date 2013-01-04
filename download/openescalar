@@ -1,0 +1,80 @@
+#!/bin/bash
+
+start() {
+
+echo	"STARTING RabbitMQ"
+/etc/init.d/rabbitmq-server start
+echo 	"STARTING Mysql"
+/etc/init.d/mysqld start
+echo 	"STARTING Apache"
+/etc/init.d/httpd start
+echo 	"STARTING Collect"
+/etc/init.d/collectd start
+echo 	"STARTING Rsyslog"
+/etc/init.d/rsyslog start
+echo 	"STARTING OE-Coordinator"
+/etc/init.d/oe-coordinator start
+sleep 10
+echo 	"STARTING OE-Worker"
+/etc/init.d/oe-worker start
+sleep 10
+echo 	"STARTING OE-Commander"
+/etc/init.d/oe-commander start
+sleep 10
+}
+
+stop() {
+echo	"STOPPING OE-Commander"
+/etc/init.d/oe-commander stop
+sleep 30 
+echo	"STOPPING OE-Worker"
+/etc/init.d/oe-worker stop
+sleep 30 
+echo	"STOPPING OE-Coordinator"
+/etc/init.d/oe-coordinator stop
+sleep 30 
+echo	"STOPPING Collect"
+/etc/init.d/collectd stop
+echo	"STOPPING Rsyslog"
+/etc/init.d/rsyslog stop
+echo	"STOPPING Apache"
+/etc/init.d/httpd stop
+echo	"STOPPING Mysql"
+/etc/init.d/mysqld stop
+echo	"STOPPING RabbitMQ"
+/etc/init.d/rabbitmq-server stop
+}
+
+update() {
+echo	"UPDATING OpenEscalar"
+pushd /opt/openescalar/amun
+/usr/bin/git reset --hard HEAD
+/usr/bin/git pull
+popd
+pushd /opt/openescalar/amun-tools
+/usr/bin/git reset --hard HEAD
+/usr/bin/git pull
+popd
+}
+
+case "$1" in
+   update)
+      stop
+      update
+      start
+	;;
+   start)
+      start
+	;;
+   restart)
+      stop
+      start
+	;;
+   stop)
+      stop
+	;;
+   *)
+	echo "Usage openescalar <start|restart|stop|update>"
+esac
+
+exit $?
