@@ -18,7 +18,7 @@ echo "INSTALLING PACKAGES" >> /tmp/script.log
 case "$TYPE" in
    ubuntu)
      echo "ubuntu" >> /tmp/script.log
-     `sudo apt-get update ; sudo apt-get install collectd ; sudo apt-get install ruby1.9.3 ; sudo gem install stomp`
+     `sudo apt-get -y update ; sudo apt-get -y install collectd ; sudo apt-get -y install ruby1.9.3 ; sudo gem install stomp`
      ;;
    redhat)
      echo "redhat fork" >> /tmp/script.log
