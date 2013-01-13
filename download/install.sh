@@ -2,7 +2,7 @@
 
 if [ -e /etc/lsb-release ] 
 then
-TYPE=ubunu
+TYPE=ubuntu
 elif [ -e /etc/redhat-release ]
 then
 TYPE=redhat
