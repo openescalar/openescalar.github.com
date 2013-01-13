@@ -12,15 +12,15 @@ fi;
 
 echo "INSTALLING PACKAGES" >> /tmp/script.log
 case "$TYPE"
-   ubuntu)
+   "ubuntu")
      echo "ubuntu" >> /tmp/script.log
      `apt-get update ; apt-get install collectd ; apt-get install ruby1.9.3 ; gem install stomp`
      ;;
-   redhat)
+   "redhat")
      echo "redhat fork" >> /tmp/script.log
      `wget -O /root/epel-release-6-8.noarch.rpm http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm ; rpm -ivh /root/epel-release-6-8.noarch.rpm ; yum install -y collectd collectd-rrdtool rsyslog rubygem-stomp`
      ;;
-   debian)
+   "debian")
      echo "debian" >> /tmp/script.log
      `apt-get update ; apt-get install collectd ; apt-get install ruby ; apt-get install rubygems ; gem install stomp`
      ;;
