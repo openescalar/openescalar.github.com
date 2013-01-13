@@ -13,6 +13,7 @@ else
 TYPE=generic
 fi;
 
+echo "$TYPE"
 echo "INSTALLING PACKAGES" >> /tmp/script.log
 case "$TYPE" in
    ubuntu)
