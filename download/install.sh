@@ -1,10 +1,13 @@
 #!/bin/bash
 
-if [ -e /etc/lsb-release ]; then
+if [ -e /etc/lsb-release ] 
+then
 TYPE=ubunu
-elif [ -e /etc/redhat-release ]; then
+elif [ -e /etc/redhat-release ]
+then
 TYPE=redhat
-elif [ -e /etc/debian_version ]; then
+elif [ -e /etc/debian_version ]
+then
 TYPE=debian
 else
 TYPE=generic
