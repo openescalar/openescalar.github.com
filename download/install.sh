@@ -6,7 +6,7 @@ fi
 if [ -e /etc/redhat-release ]; then
 TYPE=redhat
 fi
-if [ -e /etc/debian-version ]; then
+if [ -e /etc/debian_version ]; then
 TYPE=debian
 fi;
 
