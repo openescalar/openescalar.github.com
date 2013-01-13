@@ -18,7 +18,7 @@ case "$TYPE" in
      ;;
    redhat)
      echo "redhat fork" >> /tmp/script.log
-     `wget -O /root/epel-release-6-8.noarch.rpm http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm ; rpm -ivh /root/epel-release-6-8.noarch.rpm ; yum install -y collectd collectd-rrdtool rsyslog rubygem-stomp`
+     `wget -O /root/epel-release-6-8.noarch.rpm http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm ; rpm -ivh /root/epel-release-6-8.noarch.rpm ; yum install -y --nogpgcheck collectd collectd-rrdtool rsyslog rubygem-stomp`
      ;;
    debian)
      echo "debian" >> /tmp/script.log
