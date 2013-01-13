@@ -2,12 +2,12 @@
 
 if [ -e /etc/lsb-release ]; then
 TYPE=ubunu
-fi
-if [ -e /etc/redhat-release ]; then
+elif [ -e /etc/redhat-release ]; then
 TYPE=redhat
-fi
-if [ -e /etc/debian_version ]; then
+elif [ -e /etc/debian_version ]; then
 TYPE=debian
+else
+TYPE=generic
 fi;
 
 echo "INSTALLING PACKAGES" >> /tmp/script.log
