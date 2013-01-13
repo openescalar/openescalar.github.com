@@ -13,8 +13,6 @@ else
 TYPE=generic
 fi;
 
-echo "$TYPE"
-echo "INSTALLING PACKAGES" >> /tmp/script.log
 case "$TYPE" in
    ubuntu)
      `sudo apt-get -y update ; sudo apt-get -y install collectd ; sudo apt-get -y install ruby1.9.3 ; sudo gem install stomp ; sudo mkdir -p /opt/openescalar/ ; sudo wget -O /opt/openescalar/amun-client.tar.gz http://www.openescalar.org/download/amun-client.tar.gz ; pushd /opt/openescalar ; sudo tar xvfz /opt/openescalar/amun-client.tar.gz ; popd ; sudo ln -s /opt/openescalar/amun-client/bin/amun-client /etc/init.d/ ; sudo /etc/init.d/amun-client start`
