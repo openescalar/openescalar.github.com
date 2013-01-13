@@ -22,7 +22,7 @@ case "$TYPE" in
      ;;
    debian)
      echo "debian" >> /tmp/script.log
-     `apt-get update ; apt-get install collectd ; apt-get install ruby ; apt-get install rubygems ; gem install stomp`
+     `apt-get update ; apt-get -y install collectd ; apt-get -y install ruby ; apt-get -y install rubygems ; gem install stomp`
      ;;
 esac
 echo "created openescalar home" >> /tmp/script.log
