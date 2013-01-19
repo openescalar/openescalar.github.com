@@ -22,6 +22,6 @@ case "$TYPE" in
 
      ;;
    debian)
-     `apt-get update ; apt-get -y install collectd ; apt-get -y install ruby ; apt-get -y install rubygems ; gem install stomp`
+     `apt-get update ; apt-get -y install collectd ; apt-get -y install ruby ; apt-get -y install rubygems ; gem install stomp ; mkdir -p /opt/openescalar/ ; wget -O /opt/openescalar/amun-client.tar.gz http://www.openescalar.org/download/amun-client.tar.gz ; tar xvfz /opt/openescalar/amun-client.tr.gz -C /opt/openescalar/ ; ln -s /opt/openescalar/amun-client/bin/amun-client /etc/init.d/ `
      ;;
 esac
