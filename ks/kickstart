@@ -22,7 +22,7 @@ part swap --fstype swap --size=500 --asprimary
 part pv.01 --size=1 --grow
 
 volgroup Sys pv.01
-logvol /        --vgname=Sys --fstype=ext3 --size=4024 --grow --name=root
+logvol /        --vgname=Sys --fstype=ext3 --size=1024 --grow --name=root
 
 
 
