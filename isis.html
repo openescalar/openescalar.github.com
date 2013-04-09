@@ -2,7 +2,7 @@
 <html>
 <head profile="http://www.w3.org/2005/10/profile">
 <link rel="icon" type="image/png" href="/oelogo.png">
-  <title>Open Escalar - Cloud Management</title>
+  <title>Open Escalar - Isis PaaS Management - Beta</title>
   <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
   <![endif]-->
@@ -40,14 +40,15 @@
     <div class="navbar-inner">
       <div class="container">
         <a class="brand" href="/">
-          OpenEscalar
+          OpenEscalar - Isis - Beta
         </a>
         <ul class="nav">
           <li><a href="/" class="active"><span>Home</span></a></li>
           <li><a href="/features.html"><span>Features</span></a></li>
           <li><a href="/roadmap.html"><span>Roadmap</span></a></li>
-	  <li><a href="/amun.html"><span>Amun</span></a></li>
-	  <li><a href="/isis.html"><span>Isis</span></a></li>
+          <li><a href="/amun.html"><span>Amun</span></a></li>
+          <li><a href="/isis.html"><span>Isis</span></a></li>
+          <li><a href="/anubis.html"><span>Anubis</span></a></li>
           <li><a href="http://blog.openescalar.org"><span>Blog</span></a></li>
 	  <li><a href="http://www.github.com/openescalar/"><img src="github-icon.jpg" alt="Github" style="border:0;width:24px;height:24px;" /></a></li>
           <li><a href="https://plus.google.com/114371646903483254913?prsrc=3" rel="publisher" style="text-decoration:none;">
@@ -56,7 +57,7 @@
           <li><a href="http://openescalar.tumblr.com"><img src="http://platform.tumblr.com/v1/share_4.png" style="border:0;width:24px;height:24px;" /></a></li>
           <li><a href="http://www.twitter.com/openescalar"><img src="http://twitter.com/images/resources/twitter-bird-white-on-blue.png" alt="Twitter" style="border:0;width:24px;height:24px;" /> @openescalar</a></li>
         </ul>
-       <ul class="nav pull-right">
+        <ul class="nav pull-right">
           <li><a href="/es/index.html">Spanish</a></li>
         </ul>
       </div>
@@ -65,43 +66,46 @@
   <div class="container">
         <div class="row">
            <div class="offset1 span9">
-              <h2>Multi Cloud Interaction</h2>
-              <p>Provision instances on public cloud (AWS, HP, Rackspace) or private clouds (Eucalyptus, OpenStack)</p>
+              <h2>Isis PaaS Management</h2>
+	      <p>Second stack of OpenEscalar, designed to allow users to provide platform as a service on different clouds making their application portable through the different providers. Isis provides the following features:<br>
+	      <ul>
+		<li>Escalar Web Stacks</li>
+		<li>Escalar Auth and Identity</li>
+		<li>Escalar NoSQL Clusters</li>
+		<li>Escalar SQL Clusters</li>
+		<li>Escalar CDN</li>
+		<li>Escalar Data</li>
+		<li>Escalar Monitoring</li>
+		<li>Escalar Dynamic Name Service</li>
+		<li>Escalar Search Indexer</li>
+		<li>Escalar Mail Service</li>
+		<li>Escalar Notification Service</li>
+		<li>Escalar Queue Service</li>
+		<li>Escalar Workflow</li>
+		<li>Escalar Cache</li>
+	      </ul></p>
            </div>
         </div>
         <br>
         <div class="row">
            <div class="offset1 span9">
-              <h2 class="pull-right">Orchestrator</h2>
-              <p class="pull-right">Deploy and orchestrate servers allowing you to build full stacks following workflows of tasks which belong to different roles you can define and assigned to different servers</p>
+	      <h2>Architecture</h2>
+	      <p><a href="IsisArchitecture.png"><img src="IsisArchitecture.png" /></a></p>
            </div>
         </div>
         <br>
         <div class="row">
            <div class="offset1 span9">
-              <h2>Secure Client-API</h2>
-              <p>Clients communicate back to OpenEscalar using a 3 factor authentication http api calls.</p>
-           </div>
-        </div>
-        <br>
-        <div class="row">
-           <div class="offset1 span9">
-              <h2 class="pull-right">Auto Scaling</h2>
-              <p class="pull-right">Scale your applications using different thresholds which you can customize and set depending on your needs, Amun will auto scale instances following a voting system</p>
-           </div>
-        </div>
-        <br>
-        <div class="row">
-           <div class="offset1 span9">
-              <h2>Basic Monitoring</h2>
-              <p>Monitor and get alerts based on autoscaling thresholds.</p>
-           </div>
-        </div>
-        <br>
-        <div class="row">
-           <div class="offset1 span9">
-              <h2 class="pull-right">Manage your IaaS</h2>
-              <p class="pull-right">Manage your VMs, Volumes, Firewalls, restrict your users to work with specific instance sizes and images, execute tasks by server, by servers which has a role, by workflows or entire groups by setting a deployment. Infrastructures will allow you let your non-technical resources to define, design and build stacks in a snap.</p>
+		<h2>Components</h2>
+		<p>Isis is formed by the following components:<br>
+		  <ul>
+			<li><b>Isis WebUI</b><br><p>Ruby on Rails application which allows users to interact with Isis framework to requests platforms.</p></li>
+			<li><b>Isis Gears</b><br><p>Gears are the platforms themselves, each gear has a different functionality with scaling and HA capabilities.</p></li>
+			<li><b>Isis Monitoring</b><br><p>Monitors the overal health of Isis and each fo the Gears under their control.</p></li>
+			<li><b>Isis Scaler</b><br><p>Scaler takes care of running scaling the gear horizontaly by adding more components which form the gear itself.</p></li>
+			<li><b>Amun Framework</b><br><p>Isis relies on Amun in order to create and configure the gears through the different cloud providers.</p></li>
+		  </ul>
+		</p>
            </div>
         </div>
         <br>
