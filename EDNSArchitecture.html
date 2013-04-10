@@ -66,38 +66,8 @@
   <div class="container">
         <div class="row">
            <div class="offset1 span9">
-              <h2>Isis PaaS Management</h2>
-	      <p>Second stack of OpenEscalar, designed to allow users to provide platform as a service on different clouds making their application portable through the different providers. Isis provides the following features:<br>
-	      <ul>
-		<li><a href="EWSArchitecture.html">Escalar Web Stacks</a></li>
-		<li><a href="EAIArchitecture.html">Escalar Auth and Identity</a></li>
-		<li><a href="ENCArchitecture.html">Escalar NoSQL Clusters</a></li>
-		<li><a href="ESCArchitecture.html">Escalar SQL Clusters</a></li>
-		<li><a href="ECDNArchitecture.html">Escalar CDN</a></li>
-		<li><a href="EDATAArchitecture.html">Escalar Data</a></li>
-		<li><a href="EMONArchitecture.html">Escalar Monitoring</a></li>
-		<li><a href="EDNSArchitecture.html">Escalar Dynamic Name Service</a></li>
-		<li><a href="ESIArchitecture.html">Escalar Search Indexer</a></li>
-		<li><a href="EMSArchitecture.html">Escalar Mail Service</a></li>
-		<li><a href="ENSArchitecture.html">Escalar Notification Service</a></li>
-		<li><a href="EQSArchitecture.html">Escalar Queue Service</a></li>
-		<li><a href="EWFArchitecture.html">Escalar Workflow</a></li>
-		<li><a href="ECACHEArchitecture.html">Escalar Cache</a></li>
-	      </ul></p>
-           </div>
-        </div>
-        <br>
-        <div class="row">
-           <div class="offset1 span9">
-		<h2>Components</h2>
-		<p>Isis is formed by the following components:<br>
-		  <ul>
-			<li><b>Isis WebUI</b><br><p>Ruby on Rails application which allows users to interact with Isis framework to requests platforms.</p></li>
-			<li><b>Isis Gears</b><br><p>Gears are the platforms themselves, each gear has a different functionality with scaling and HA capabilities.</p></li>
-			<li><b>Isis Monitoring</b><br><p>Monitors the overal health of Isis and each fo the Gears under their control.</p></li>
-			<li><b>Isis Scaler</b><br><p>Scaler takes care of running scaling the gear horizontaly by adding more components which form the gear itself.</p></li>
-			<li><b>Amun Framework</b><br><p>Isis relies on Amun in order to create and configure the gears through the different cloud providers.</p></li>
-		  </ul>
+		<h2>Escalar Dynamic Name Service - EDNS</h2>
+		<p>EDNS allows you to define your domain name and automatically register you vms or even isis gears with it, while removing the need of updating dns records manually. It also provides Dynamic views which allows you to get different ips based on the client location. You can manage A, CNAME, MX and informational records. The registration can be setup automatically or static, if automatic registration is done the domain name will be tied up to a specific resource which in case of failure it will register against a new instance of that resource once its available.
 		</p>
            </div>
         </div>
@@ -105,7 +75,7 @@
         <div class="row">
            <div class="offset1 span9">
 	      <h2>Architecture</h2>
-	      <p><a href="IsisArchitecture.png"><img src="IsisArchitecture.png" /></a></p>
+	      <p><a href="EDNSArchitecture.png"><img src="EDNSArchitecture.png" /></a></p>
            </div>
         </div>
         <br>
